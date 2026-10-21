@@ -35,6 +35,7 @@ export function prepareSite(directory){
   html=html.replace(/(?:assets\/)?app(?:-[a-f0-9]{12})?\.js(?:\?[^"']*)?/g,`assets/${built.get('app.js')}`)
    .replace(/(?:assets\/)?(?<![\w-])style(?:-[a-f0-9]{12})?\.css(?:\?[^"']*)?/g,`assets/${stylesheet}`);
   if(styles.has('case-study.css'))html=html.replace(/(?:assets\/)?case-study(?:-[a-f0-9]{12})?\.css(?:\?[^"']*)?/g,`assets/${styles.get('case-study.css')}`);
+  if(built.has('spatial.js'))html=html.replace(/(?:assets\/)?spatial(?:-[a-f0-9]{12})?\.js/g,`assets/${built.get('spatial.js')}`);
   writeFileSync(path.join(root,name),html);
  }
  return Object.fromEntries([...built,...styles]);

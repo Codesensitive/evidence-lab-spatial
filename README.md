@@ -1,4 +1,29 @@
-# Anuj Yadav — AI engineering portfolio
+# Evidence Lab Spatial
+
+Independent 3D interface for Anuj Yadav's browser-local RAG application.
+
+Preview: https://codesensitive.github.io/evidence-lab-spatial/
+
+Repository: https://github.com/Codesensitive/evidence-lab-spatial
+
+The original live portfolio is frozen and remains at https://codesensitive.github.io/. This repository preserves its complete RAG implementation while redesigning the interface around a procedural Three.js document sculpture, an instrument-inspired dark palette, readable controls and explicit motion handling. See `FROZEN_BASELINE.md`, `DESIGN_RESEARCH.md` and `SPATIAL_QA.md`.
+
+All 19 RAG modules and all original control IDs are verified against the frozen baseline. PDF ingestion, English OCR, BM25, MiniLM/BGE, hybrid RRF, WebLLM, Simple/Advanced settings, comparisons and JSON traces retain their original behavior. The scene does not render private uploaded text. This duplicate preview is noindex and retains the original canonical URLs.
+
+## Run the spatial version
+
+```powershell
+npm ci
+npm run prepare:ai
+$env:PORT='4192'
+npm start
+```
+
+Open http://127.0.0.1:4192/. Without a PORT override the original development default is 4173. Tests: `npm test`. Pushes to this repository's main branch deploy its own Pages project, independently of the original user site.
+
+## Original application reference
+
+The remaining reference describes the inherited application. Older counts and original deployment links are historical; the latest spatial verification is in SPATIAL_QA.md.
 
 Live portfolio: https://codesensitive.github.io/
 

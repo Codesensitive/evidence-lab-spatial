@@ -15,6 +15,8 @@ for(const file of readdirSync(new URL('node_modules/tesseract.js-core/',root)).f
 copy('tesseract.js-core/LICENSE','ocr/core/LICENSE');
 copy('@tesseract.js-data/eng/4.0.0_best_int/eng.traineddata.gz','ocr/lang/eng.traineddata.gz');
 copy('@tesseract.js-data/eng/README.md','ocr/lang/README.md');
+for(const file of ['three.module.js','three.core.js'])copy(`three/build/${file}`,`three/${file}`);
+copy('three/LICENSE','three/LICENSE');
 console.log('Pinned browser embedding and OCR runtimes prepared.');
 await import('./prepare-pdf.mjs');
 const {prepareSite}=await import('./prepare-site.mjs');

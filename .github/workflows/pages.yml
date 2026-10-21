@@ -1,4 +1,4 @@
-name: Deploy static portfolio
+name: Deploy spatial Evidence Lab
 on:
   push:
     branches: [main]

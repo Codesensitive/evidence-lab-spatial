@@ -15,7 +15,7 @@ These sources were reviewed as references. No third-party skill scripts or globa
 
 ## Art direction
 
-The revised visual concept is the retrieval interface itself arranged in three dimensions: source library, ranked context and cited evidence. Translucent planes, edge highlights, material thickness and a perspective floor create depth without a decorative document sculpture. These example planes illustrate bundled sample content and do not render uploaded documents.
+The revised visual concept is the retrieval interface itself arranged in three dimensions: source library, ranked context and cited evidence. A single complete section moves to the front when its tab is selected. Translucent backing layers, edge highlights, material thickness and a perspective floor create depth without concealing content or using a decorative document sculpture. These example planes illustrate bundled sample content and do not render uploaded documents.
 
 The material system extends throughout the page: raised header and workspace, beveled mode controls, inset form fields, elevated process panels and an integrated engineer section. Reading surfaces and working controls remain flat for usability. Desktop pointer movement adjusts the illustrative pipeline slightly; mobile retains a stable composition.
 

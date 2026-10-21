@@ -6,14 +6,23 @@ if(host){
  let paused=reduced?.matches??true,visible=false,busy=false,frame=0;
  const observerSupported=typeof IntersectionObserver==='function'&&typeof ResizeObserver==='function';
  const updateMotion=()=>{host.classList.toggle('motion-running',!paused&&visible&&!busy&&!document.hidden);pause.textContent=paused?'Resume motion':'Pause motion';pause.setAttribute('aria-pressed',String(paused));};
- document.getElementById('scene-stages').addEventListener('click',event=>{
-  const button=event.target.closest('[data-scene-stage]');if(!button)return;
-  document.querySelectorAll('[data-scene-stage]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
-  host.dataset.stage=button.dataset.sceneStage;document.getElementById('scene-description').textContent=descriptions[button.dataset.sceneStage];
+ const buttons=[...document.querySelectorAll('[data-scene-stage]')];
+ function activateStage(stage,focus=false){
+  if(!descriptions[stage])return;
+  for(const button of buttons){const selected=button.dataset.sceneStage===stage;button.setAttribute('aria-pressed',String(selected));button.setAttribute('aria-selected',String(selected));button.tabIndex=selected?0:-1;if(selected&&focus)button.focus();}
+  for(const panel of host.querySelectorAll('[data-pipeline-panel]')){const selected=panel.dataset.pipelinePanel===stage;panel.classList.toggle('is-active',selected);panel.setAttribute('aria-hidden',String(!selected));panel.inert=!selected;}
+  host.dataset.stage=stage;document.getElementById('scene-description').textContent=descriptions[stage];
+ }
+ document.getElementById('scene-stages').addEventListener('click',event=>{const button=event.target.closest('[data-scene-stage]');if(button)activateStage(button.dataset.sceneStage);});
+ document.getElementById('scene-stages').addEventListener('keydown',event=>{
+  const current=buttons.findIndex(button=>button===event.target);if(current<0)return;
+  let next;if(event.key==='ArrowRight')next=(current+1)%buttons.length;else if(event.key==='ArrowLeft')next=(current+buttons.length-1)%buttons.length;else if(event.key==='Home')next=0;else if(event.key==='End')next=buttons.length-1;else return;
+  event.preventDefault();activateStage(buttons[next].dataset.sceneStage,true);
  });
+ activateStage(host.dataset.stage||'source');
  pause.addEventListener('click',()=>{paused=!paused;updateMotion();});
  const reset=()=>{host.style.removeProperty('--scene-x');host.style.removeProperty('--scene-y');};
- const move=event=>{if(event.pointerType==='touch'||reduced?.matches||busy)return;if(frame)cancelAnimationFrame(frame);frame=requestAnimationFrame(()=>{frame=0;const r=host.getBoundingClientRect();host.style.setProperty('--scene-x',((event.clientX-r.left)/r.width-.5)*7+'deg');host.style.setProperty('--scene-y',-((event.clientY-r.top)/r.height-.5)*5+'deg');});};
+ const move=event=>{if(event.pointerType==='touch'||reduced?.matches||busy)return;if(frame)cancelAnimationFrame(frame);frame=requestAnimationFrame(()=>{frame=0;const r=host.getBoundingClientRect();host.style.setProperty('--scene-x',((event.clientX-r.left)/r.width-.5)*4+'deg');host.style.setProperty('--scene-y',-((event.clientY-r.top)/r.height-.5)*3+'deg');});};
  host.addEventListener('pointermove',move);host.addEventListener('pointerleave',reset);
  const motionChange=()=>{paused=!!reduced?.matches;reset();updateMotion();};reduced?.addEventListener?.('change',motionChange);
  document.addEventListener('visibilitychange',updateMotion);

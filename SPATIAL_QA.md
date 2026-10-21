@@ -2,6 +2,12 @@
 
 Date: 21 October 2026.
 
+## Interactive section viewer
+
+The overlapping content cards are replaced by a single front-facing stage viewer. Source, Retrieval and Evidence tabs expose the complete selected section; inactive sections are transparent, inaccessible to pointer/focus, and hidden from assistive technology. The backing layers represent physical depth rather than concealed content.
+
+Verified all three selected states on desktop and at 390 pixels. Active panel content height does not exceed panel height, and there is no horizontal page overflow. Stage selection updates content, explanations and accessible state. Arrow keys, Home and End move between the tabs. The suite now passes 71 tests, including the complete selection cycle and keyboard focus synchronization. All 19 RAG modules remain unchanged.
+
 ## Revised depth treatment
 
 The document sculpture and WebGL renderer were replaced with CSS perspective layers representing source, retrieval and evidence. Shared material and lighting styles now cover the header, workspace, inputs, mode controls, process panels and engineer section. The Interactive 3D study label was removed.

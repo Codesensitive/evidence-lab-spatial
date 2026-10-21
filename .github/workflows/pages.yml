@@ -1,3 +1,4 @@
+# Independent spatial preview; the original portfolio remains frozen.
 name: Deploy spatial Evidence Lab
 on:
   push:

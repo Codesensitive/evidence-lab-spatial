@@ -6,7 +6,7 @@ Preview: https://codesensitive.github.io/evidence-lab-spatial/
 
 Repository: https://github.com/Codesensitive/evidence-lab-spatial
 
-The original live portfolio is frozen and remains at https://codesensitive.github.io/. This repository preserves its complete RAG implementation while redesigning the interface around a procedural Three.js document sculpture, an instrument-inspired dark palette, readable controls and explicit motion handling. See `FROZEN_BASELINE.md`, `DESIGN_RESEARCH.md` and `SPATIAL_QA.md`.
+The original live portfolio is frozen and remains at https://codesensitive.github.io/. This repository preserves its complete RAG implementation while redesigning the interface around a layered spatial view of source, retrieval and evidence, an instrument-inspired dark palette, readable controls and explicit motion handling. See `FROZEN_BASELINE.md`, `DESIGN_RESEARCH.md` and `SPATIAL_QA.md`.
 
 All 19 RAG modules and all original control IDs are verified against the frozen baseline. PDF ingestion, English OCR, BM25, MiniLM/BGE, hybrid RRF, WebLLM, Simple/Advanced settings, comparisons and JSON traces retain their original behavior. The scene does not render private uploaded text. This duplicate preview is noindex and retains the original canonical URLs.
 

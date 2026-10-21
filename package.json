@@ -14,8 +14,7 @@
     "@mlc-ai/web-llm": "0.2.86",
     "@tesseract.js-data/eng": "1.0.0",
     "pdfjs-dist": "6.4.299",
-    "tesseract.js": "7.0.0",
-    "three": "0.186.1"
+    "tesseract.js": "7.0.0"
   },
   "devDependencies": {
     "jsdom": "30.1.2"

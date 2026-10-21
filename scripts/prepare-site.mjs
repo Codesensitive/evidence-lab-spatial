@@ -23,7 +23,7 @@ export function prepareSite(directory){
   writeFileSync(path.join(output,filename),source);built.set(name,filename);visiting.delete(name);return filename;
  }
  for(const name of names)build(name);
- const css=readFileSync(path.join(root,'style.css'),'utf8'),stylesheet=`style-${hash(css)}.css`;
+ const css=readFileSync(path.join(root,'style.css'),'utf8')+(readdirSync(root).includes('depth.css')?'\n'+readFileSync(path.join(root,'depth.css'),'utf8'):''),stylesheet=`style-${hash(css)}.css`;
  writeFileSync(path.join(output,stylesheet),css);
  const styles=new Map([['style.css',stylesheet]]);
  if(readdirSync(root).includes('case-study.css')){

@@ -2,6 +2,14 @@
 
 Date: 21 October 2026.
 
+## Revised depth treatment
+
+The document sculpture and WebGL renderer were replaced with CSS perspective layers representing source, retrieval and evidence. Shared material and lighting styles now cover the header, workspace, inputs, mode controls, process panels and engineer section. The Interactive 3D study label was removed.
+
+Local checks of the revised version confirmed no horizontal overflow on desktop and at 390 pixels, sample BM25 retrieval and source citations, working stage selection, and the preserved original application modules. The existing 70-test suite passes. Reduced-motion rules retain a stable readable composition. Three.js is no longer a runtime dependency.
+
+The WebGL-specific checks below describe the initial version and are retained as historical evidence; they do not describe the replacement.
+
 ## Preservation
 
 All 19 RAG application modules match the frozen live source after CRLF/LF normalization. Every original application control ID remains present. The source manifest and automated regressions enforce this boundary. No ingestion, retrieval, embedding, OCR, prompting, generation, citation, comparison or trace implementation was rewritten for the redesign.
